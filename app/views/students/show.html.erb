@@ -1,0 +1,65 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>First Name:</strong>
+  <%= @student.firstname %>
+</p>
+
+<p>
+  <strong>Last Name:</strong>
+  <%= @student.lastname %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= number_to_phone(@student.phone, area_code: true) %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @student.email %>
+</p>
+
+<p>
+  <strong>Date of Birth:</strong>
+  <%= @student.dob %>
+<!--   .strftime("%B %e, %Y") -->
+</p>
+
+<p>
+  <strong>Experience:</strong>
+  <%= @student.experience %>
+</p>
+
+<p>
+  <strong>Interests:</strong>
+  <%= @student.interests %>
+</p>
+
+<p>
+  <strong>Lesson Time:</strong>
+  <%= @student.lessontime %>
+</p>
+
+<%= link_to 'New Lesson Notes', new_lesson_path, class: 'button btn btn-info' %>
+
+<div id="lessons">
+
+    <%= render 'lessons/form', lesson: @lesson %>
+
+</div>
+
+
+<table class="table">
+  <tr>
+    <td>
+      <%= link_to 'Edit Student Info', edit_student_path(@student), class: 'button btn btn-info' %>
+    </td>
+    <td>
+      <%= link_to 'Delete Student', @student, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button btn btn-danger' %> 
+    </td>
+    <td>
+      <%= link_to 'Back to All Students', students_path, class: 'button btn btn-info' %>
+    </td>
+  </tr>
+</table>

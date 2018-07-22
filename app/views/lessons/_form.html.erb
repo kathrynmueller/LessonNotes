@@ -1,0 +1,66 @@
+<%= form_with(model: lesson, local: true) do |form| %>
+  <% if lesson.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(lesson.errors.count, "error") %> prohibited this lesson from being saved:</h2>
+
+      <ul>
+      <% lesson.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+
+  <h2>Enter Lesson Notes:</h2>
+
+  <div class="field">
+    <%= form.label :status %>
+    <%= form.text_field :status %>
+  </div>
+
+  <div class="field">
+
+    <%= radio_button_tag(:status, "completed") %>
+    <%= label_tag(:status_completed, "Completed") %>
+    <%= radio_button_tag(:status, "cancelled") %>
+    <%= label_tag(:status_cancelled, "Cancelled") %>
+    <%= radio_button_tag(:status, "no_show") %>
+    <%= label_tag(:status_no_show, "No-Show") %><br>
+
+    <%= radio_button_tag ':status', 'completed' %> Completed<br>
+    <%= radio_button_tag ':status', 'cancelled' %> Cancelled<br>
+    <%= radio_button_tag ':status', 'no_show' %> No-Show<br>
+  </div>
+
+  <div class="field">
+    <%= form.label :grade %>
+    <%= form.text_field :grade %>
+  </div>
+
+  <div class="field">
+    <%= form.label :teachernote %>
+    <%= form.text_area :teachernote %>
+  </div>
+
+  <div class="field">
+    <%= form.label :studentnote %>
+    <%= form.text_area :studentnote %>
+  </div>
+
+  <div class="field">
+    <%= form.label :reminder %>
+    <%= form.text_area :reminder %>
+  </div>
+
+  <div class="field">
+    <%= form.label :nextlesson %>
+    <%= form.datetime_field :nextlesson %>
+  </div>
+
+  <%= form.hidden_field :@studentid, value: @studentid %>
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>
