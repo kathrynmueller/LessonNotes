@@ -15,7 +15,7 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   def new
     @lesson = Lesson.new
-    # @student = Student.find(params[:id])
+    # @student = Student.find(params[:student_id]) if params.has_key?(:student_id)
   end
 
   # GET /lessons/1/edit
@@ -70,6 +70,6 @@ class LessonsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:studentid, :status, :grade, :teachernote, :studentnote, :reminder, :nextlesson)
+      params.require(:lesson).permit(:student_id, :status, :grade, :teachernote, :studentnote, :reminder, :nextlesson)
     end
 end

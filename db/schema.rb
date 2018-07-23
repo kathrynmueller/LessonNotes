@@ -21,7 +21,7 @@ ActiveRecord::Schema.define(version: 2018_07_20_195544) do
     t.string "nextlesson"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "studentid"
+    t.integer "student_id"
   end
 
   create_table "students", force: :cascade do |t|
