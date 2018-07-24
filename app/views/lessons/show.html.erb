@@ -1,6 +1,16 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Student:</strong>
+  <%= @lesson.student.firstname %> <%= @lesson.student.lastname %>
+</p>
+
+<p>
+  <strong>Lesson Date:</strong>
+  <%= @lesson.created_at.strftime("%b %d, %Y") %>
+</p>
+
+<p>
   <strong>Status:</strong>
   <%= @lesson.status %>
 </p>

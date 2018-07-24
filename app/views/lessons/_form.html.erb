@@ -20,22 +20,14 @@
    <br>
 
   <div class="field">
-    <%= form.label :status %>
-    <%= form.text_field :status %>
-  </div>
 
-  <div class="field">
-
-    <%= radio_button_tag(:status, "completed") %>
-    <%= label_tag(:status_completed, "Completed") %>
-    <%= radio_button_tag(:status, "cancelled") %>
-    <%= label_tag(:status_cancelled, "Cancelled") %>
-    <%= radio_button_tag(:status, "no_show") %>
-    <%= label_tag(:status_no_show, "No-Show") %><br>
-
-<!--     <%= radio_button_tag ':status', 'completed' %> Completed<br>
-    <%= radio_button_tag ':status', 'cancelled' %> Cancelled<br>
-    <%= radio_button_tag ':status', 'no_show' %> No-Show<br> -->
+    <%= form.radio_button :status, "completed" %>
+    <%= form.label :status_completed, "Completed" %>
+    <%= form.radio_button :status, "cancelled" %>
+    <%= form.label :status_cancelled, "Cancelled" %>
+    <%= form.radio_button :status, "no_show" %>
+    <%= form.label :status_no_show, "No-Show" %><br>
+  
   </div>
 
   <div class="field">
@@ -62,6 +54,8 @@
     <%= form.label :nextlesson %>
     <%= form.datetime_field :nextlesson %>
   </div>
+
+  <input type="text" data-provide='datepicker' >
 
   <div class="actions">
     <%= form.submit %>

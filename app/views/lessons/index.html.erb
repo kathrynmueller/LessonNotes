@@ -5,6 +5,9 @@
 <table>
   <thead>
     <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Lesson Date</th>
       <th>Status</th>
       <th>Grade</th>
       <th>Teachernote</th>
@@ -18,6 +21,9 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
+        <td><%= lesson.student.firstname %></td>
+        <td><%= lesson.student.lastname %></td>
+        <td><%= lesson.created_at.strftime("%b %d, %Y") %></td>
         <td><%= lesson.status %></td>
         <td><%= lesson.grade %></td>
         <td><%= lesson.teachernote %></td>
