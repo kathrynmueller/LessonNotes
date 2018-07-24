@@ -7,7 +7,7 @@
 
 <p>
   <strong>Lesson Date:</strong>
-  <%= @lesson.created_at.strftime("%b %d, %Y") %>
+  <%= @lesson.lesson_date.strftime("%b %d, %Y") %>
 </p>
 
 <p>
@@ -36,8 +36,8 @@
 </p>
 
 <p>
-  <strong>Nextlesson:</strong>
-  <%= @lesson.nextlesson %>
+  <strong>Next Lesson:</strong>
+  <%= @lesson.next_lesson.strftime("%b %d, %Y") %>
 </p>
 
 <%= link_to 'Edit', edit_lesson_path(@lesson) %> |

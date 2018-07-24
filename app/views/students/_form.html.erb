@@ -21,6 +21,15 @@
     <%= form.text_field :lastname, class: "form-control"  %>
   </div>
 
+  <div class="field">
+
+    <%= form.radio_button :status, "active" %>
+    <%= form.label :status_active, "Active" %>
+    <%= form.radio_button :status, "inactive" %>
+    <%= form.label :status_inactive, "Inactive" %>
+  
+  </div>
+
   <div class="form-group">
     Phone (10 digits, no hyphens)<br>
     <%= form.number_field :phone, class: "form-control"  %>

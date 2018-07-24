@@ -4,13 +4,16 @@ class StudentsController < ApplicationController
   # GET /students
   # GET /students.json
   def index
-    @students = Student.all
+    @students = Student.all.order(lastname: :asc).page(params[:page]).per(5)
+    # @lastlesson = @student.lessons.first
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
     @lesson = Lesson.new
+    @lessons = @student.lessons.order(created_at: :desc).page(params[:page]).per(1)
+
   end
 
   # GET /students/new
@@ -70,6 +73,6 @@ class StudentsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def student_params
-      params.require(:student).permit(:firstname, :lastname, :phone, :email, :dob, :experience, :interests, :lessontime)
+      params.require(:student).permit(:firstname, :lastname, :status, :phone, :email, :dob, :experience, :interests, :lessontime)
     end
 end

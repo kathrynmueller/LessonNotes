@@ -7,9 +7,8 @@
     <tr>
       <th>Firstname</th>
       <th>Lastname</th>
-      <th>Phone</th>
-      <th>Email</th>
       <th>Lesson Time</th>
+      <th>Next Lesson</th>
       <th colspan="4"></th>
     </tr>
   </thead>
@@ -18,16 +17,18 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.firstname %></td>
-        <td><%= student.lastname %></td>
-        <td><%= number_to_phone(student.phone, area_code: true) %></td>
-        <td><%= student.email %></td>      
+        <td><%= student.lastname %></td>   
         <td><%= student.lessontime %></td>
+        <td> </td>
         <td><%= link_to 'Add Lesson Note', new_lesson_path(student), class: "button btn btn-info" %></td>
-        <td><%= link_to 'View Student Info', student, class: "button btn btn-info" %></td>
+        <td><%= link_to 'View/Edit Student Info', student, class: "button btn btn-info" %></td>
       </tr>
     <% end %>
+
   </tbody>
+
 </table>
+    <%= paginate @students %>
 
 <br>
 

@@ -15,9 +15,14 @@
   <h2>Enter Lesson Notes:</h2>
 
     <div class="field">
-    <%= form.collection_select :student_id, Student.all, :id, :firstname %>
+    <%= form.collection_select :student_id, Student.all, :id, :first_last_name %>
    </div>
    <br>
+
+  <div class="field">
+  <%= form.label :lesson_date %>
+   <%= form.datetime_field :lesson_date %>
+  </div>
 
   <div class="field">
 
@@ -51,8 +56,8 @@
   </div>
 
   <div class="field">
-    <%= form.label :nextlesson %>
-    <%= form.datetime_field :nextlesson %>
+    <%= form.label :next_lesson %>
+    <%= form.datetime_field :next_lesson %>
   </div>
 
   <input type="text" data-provide='datepicker' >

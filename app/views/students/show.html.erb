@@ -3,13 +3,19 @@
 <div class="row">
   <div class="col-md-6"
     <p>
-      <strong>First Name:</strong>
-      <%= @student.firstname %>
+      <strong>Name:</strong>
+      <%= @student.firstname %> <%= @student.lastname %>
+    </p>
+
+    <p><strong>Status: </strong>
+              <% if @student.status != nil %>
+              <%= @student.status %> 
+              <% end %> 
     </p>
 
     <p>
-      <strong>Last Name:</strong>
-      <%= @student.lastname %>
+      <strong>Lesson Time:</strong>
+      <%= @student.lessontime %>
     </p>
 
     <p>
@@ -25,7 +31,7 @@
     <p>
       <strong>Date of Birth:</strong>
       <%= @student.dob %>
-    <!--   .strftime("%B %e, %Y") -->
+<!--       .strftime('%b %d, %Y') -->
     </p>
 
     <p>
@@ -38,32 +44,47 @@
       <%= @student.interests %>
     </p>
 
-    <p>
-      <strong>Lesson Time:</strong>
-      <%= @student.lessontime %>
-    </p>
 
-    <%= link_to 'New Lesson Notes', new_lesson_path, class: 'button btn btn-info' %>
+
+
 
 
 
 
   </div>
 
+
+
   <div class="col-md-6">
-    <h1> Most recent lesson </h1>
-      <% @student.lessons.each do |lesson| %>
+    <h1> Lessons </h1>
+
+        <%= link_to 'Create New Lesson', new_lesson_path, class: 'button btn btn-info' %>
+
+      <% @lessons.each do |lesson| %>
         <div class="card">
           <div class="card-header">
-              <%= lesson.created_at %> 
+            <strong>Lesson Date:</strong>
+            <% if lesson.lesson_date != nil %>
+           <%= lesson.lesson_date.strftime("%b %d, %Y") %>
+           <% end %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= lesson.status %> | <% lesson.grade %></h5>
+            <h5 class="card-title"><%= lesson.status %> | <%= lesson.grade %></h5>
             <p class="card-text">
             <p> <strong>Teacher Notes: </strong><%= lesson.teachernote %> </p>
             <p> <strong>Notes to Student: </strong><%= lesson.studentnote %> </p>
             <p> <strong>Reminder: </strong><%= lesson.reminder %> </p>
-            <p> <strong>Next lesson: </strong><%= lesson.nextlesson %> </p>
+            <p> 
+
+              
+              <strong>Next lesson: </strong>
+              <% if lesson.next_lesson != nil %>
+              <%= lesson.next_lesson.strftime('%b %d, %Y %l:%M %p') %> 
+              <p>Record Created:<%= lesson.created_at.strftime('%b %d, %Y %l:%M %p') %> </p>
+              <% end %> </p>
+            <%= link_to 'Edit This Lesson', edit_lesson_path, class: 'button btn btn-info' %><br>
+            <%= paginate @lessons %><br>
+            <%= page_entries_info @lessons, entry_name: 'Lesson' %>
 
           </div>
         </div>
