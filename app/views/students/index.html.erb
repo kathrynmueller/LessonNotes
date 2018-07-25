@@ -2,7 +2,7 @@
 
 <h1>Students</h1>
 
-<table class="table">
+<table class="table bg-white">
   <thead>
     <tr>
       <th>Firstname</th>
@@ -19,8 +19,12 @@
         <td><%= student.firstname %></td>
         <td><%= student.lastname %></td>   
         <td><%= student.lessontime %></td>
-        <td> </td>
-        <td><%= link_to 'Add Lesson Note', new_lesson_path(student), class: "button btn btn-info" %></td>
+        <% if student.lessons.last != nil %>
+          <td> <%= student.lessons.last.lesson_date.strftime('%a, %B %e, %l:%M %p ') %> </td>
+        <% else %>
+          <td> * No lesson scheduled * </td>
+        <% end %>
+        <td><%= link_to 'Edit this Lesson', new_lesson_path(student), class: "button btn btn-info" %></td>
         <td><%= link_to 'View/Edit Student Info', student, class: "button btn btn-info" %></td>
       </tr>
     <% end %>

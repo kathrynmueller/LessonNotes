@@ -1,62 +1,68 @@
 <p id="notice"><%= notice %></p>
 
 <div class="row">
-  <div class="col-md-6"
-    <p>
-      <strong>Name:</strong>
-      <%= @student.firstname %> <%= @student.lastname %>
-    </p>
+  <div class="col-md-6">
+    <div class="card student-card">
+        <div class="card-header">
+          <h3><strong>Name:</strong>
+          <%= @student.firstname %> <%= @student.lastname %></h3>
+        </div>
+        <div class="card-body">
+          <p><strong>Status: </strong>
+                    <% if @student.status != nil %>
+                    <%= @student.status %> 
+                    <% end %> 
+          </p>
 
-    <p><strong>Status: </strong>
-              <% if @student.status != nil %>
-              <%= @student.status %> 
-              <% end %> 
-    </p>
+          <p>
+            <strong>Lesson Time:</strong>
+            <%= @student.lessontime %>
+          </p>
 
-    <p>
-      <strong>Lesson Time:</strong>
-      <%= @student.lessontime %>
-    </p>
+          <p>
+            <strong>Phone:</strong>
+            <%= number_to_phone(@student.phone, area_code: true) %>
+          </p>
 
-    <p>
-      <strong>Phone:</strong>
-      <%= number_to_phone(@student.phone, area_code: true) %>
-    </p>
+          <p>
+            <strong>Email:</strong>
+            <%= @student.email %>
+          </p>
 
-    <p>
-      <strong>Email:</strong>
-      <%= @student.email %>
-    </p>
+          <p>
+            <strong>Date of Birth:</strong>
+            <%= @student.dob %>
+          </p>
 
-    <p>
-      <strong>Date of Birth:</strong>
-      <%= @student.dob %>
-<!--       .strftime('%b %d, %Y') -->
-    </p>
+          <p>
+            <strong>Experience:</strong>
+            <%= @student.experience %>
+          </p>
 
-    <p>
-      <strong>Experience:</strong>
-      <%= @student.experience %>
-    </p>
+          <p>
+            <strong>Interests:</strong>
+            <%= @student.interests %>
+          </p>
 
-    <p>
-      <strong>Interests:</strong>
-      <%= @student.interests %>
-    </p>
+          <div class="row">
+              <div class="col-md-6">
+                <%= link_to 'Edit Student Info', edit_student_path(@student), class: 'button btn btn-info' %>
+              </div>
+              <div class="col-md-6">
+                <%= link_to 'Delete Student', @student, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button btn btn-danger' %> 
+              </div>
+ 
+          </div>
+        </div>
 
-
-
-
-
-
-
+      </div>
 
   </div>
 
 
 
   <div class="col-md-6">
-    <h1> Lessons </h1>
+    <h3> Next/Most Recent Lesson: </h3>
 
         <%= link_to 'Create New Lesson', new_lesson_path, class: 'button btn btn-info' %>
 
@@ -68,21 +74,17 @@
            <%= lesson.lesson_date.strftime("%b %d, %Y") %>
            <% end %>
           </div>
+          <div class="card-header header-reminder">
+            <strong>Reminder:</strong>
+           <%= lesson.reminder %>
+          </div>
           <div class="card-body">
-            <h5 class="card-title"><%= lesson.status %> | <%= lesson.grade %></h5>
+            <h5 class="card-title"><%= lesson.status %> | <strong>Grade: </strong><%= lesson.grade %></h5>
             <p class="card-text">
             <p> <strong>Teacher Notes: </strong><%= lesson.teachernote %> </p>
             <p> <strong>Notes to Student: </strong><%= lesson.studentnote %> </p>
-            <p> <strong>Reminder: </strong><%= lesson.reminder %> </p>
-            <p> 
 
-              
-              <strong>Next lesson: </strong>
-              <% if lesson.next_lesson != nil %>
-              <%= lesson.next_lesson.strftime('%b %d, %Y %l:%M %p') %> 
-              <p>Record Created:<%= lesson.created_at.strftime('%b %d, %Y %l:%M %p') %> </p>
-              <% end %> </p>
-            <%= link_to 'Edit This Lesson', edit_lesson_path, class: 'button btn btn-info' %><br>
+            <%= link_to 'Edit/Complete This Lesson', edit_lesson_path, class: 'button btn btn-info' %><br>
             <%= paginate @lessons %><br>
             <%= page_entries_info @lessons, entry_name: 'Lesson' %>
 
@@ -92,17 +94,6 @@
 
   </div>
 
-      <table class="table">
-      <tr>
-        <td>
-          <%= link_to 'Edit Student Info', edit_student_path(@student), class: 'button btn btn-info' %>
-        </td>
-        <td>
-          <%= link_to 'Delete Student', @student, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button btn btn-danger' %> 
-        </td>
-        <td>
-          <%= link_to 'Back to All Students', students_path, class: 'button btn btn-info' %>
-        </td>
-      </tr>
-    </table>
+      
 </div>
+<%= link_to 'Back to All Students', students_path, class: 'button btn btn-info' %>    

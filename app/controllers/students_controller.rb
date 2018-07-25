@@ -5,14 +5,15 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all.order(lastname: :asc).page(params[:page]).per(5)
-    # @lastlesson = @student.lessons.first
+    # @lastlesson = @student.lessons.last
+
   end
 
   # GET /students/1
   # GET /students/1.json
   def show
     @lesson = Lesson.new
-    @lessons = @student.lessons.order(created_at: :desc).page(params[:page]).per(1)
+    @lessons = @student.lessons.order(lesson_date: :desc).page(params[:page]).per(1)
 
   end
 

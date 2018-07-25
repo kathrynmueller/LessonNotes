@@ -1,5 +1,7 @@
 <p id="notice"><%= notice %></p>
 
+<h2> Lesson </h2>
+
 <p>
   <strong>Student:</strong>
   <%= @lesson.student.firstname %> <%= @lesson.student.lastname %>
@@ -35,10 +37,8 @@
   <%= @lesson.reminder %>
 </p>
 
-<p>
-  <strong>Next Lesson:</strong>
-  <%= @lesson.next_lesson.strftime("%b %d, %Y") %>
-</p>
 
 <%= link_to 'Edit', edit_lesson_path(@lesson) %> |
+<%= link_to 'Set up Next Lesson', new_lesson_path %> |
 <%= link_to 'Back', lessons_path %>
+<h3> Link to Student's Show Page </h3>

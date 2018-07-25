@@ -29,6 +29,36 @@
 	text-shadow: 3px 2px black;
 }
 
+.container {
+	background-image: image-url('hip-square.png');
+	margin-top: 0px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	height: 100%;
+}
+
+.bg-white {
+	background-color: white;
+}
+
 h2 {
 	color: red;
+}
+
+.btn {
+	margin-bottom: 10px;
+}
+
+.card {
+}
+ 
+.header-reminder {
+	background-color: #ffbf80;
+}
+
+.bottom {
+	position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
 }
