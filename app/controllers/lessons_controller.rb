@@ -10,6 +10,7 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.json
   def show
+    @student = Student.find(params[:id])
   end
 
   # GET /lessons/new
@@ -64,6 +65,11 @@ class LessonsController < ApplicationController
       format.html { redirect_to lessons_url, notice: 'Lesson was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def lessons_by_student
+    @student = Student.find(params[:id])
+    @lessons = @student.lessons.order(lesson_date: :desc)
   end
 
   private

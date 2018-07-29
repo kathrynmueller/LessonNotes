@@ -19,11 +19,17 @@
         <td><%= student.firstname %></td>
         <td><%= student.lastname %></td>   
         <td><%= student.lessontime %></td>
-        <% if student.lessons.last != nil %>
-          <td> <%= student.lessons.last.lesson_date.strftime('%a, %B %e, %l:%M %p ') %> </td>
+
+        <% if student.lessons.last == nil %>
+          <td> * No lessons for this student * </td>
         <% else %>
-          <td> * No lesson scheduled * </td>
+            <% if student.lessons.last.lesson_date.past? %>
+              <td> * No next lesson scheduled * </td>
+            <% else %>
+              <td> <%= student.lessons.last.lesson_date.strftime('%a, %B %e, %l:%M %p ') %> </td>         
+            <% end %>
         <% end %>
+
         <td><%= link_to 'Edit this Lesson', new_lesson_path(student), class: "button btn btn-info" %></td>
         <td><%= link_to 'View/Edit Student Info', student, class: "button btn btn-info" %></td>
       </tr>

@@ -49,7 +49,7 @@
                 <%= link_to 'Edit Student Info', edit_student_path(@student), class: 'button btn btn-info' %>
               </div>
               <div class="col-md-6">
-                <%= link_to 'Delete Student', @student, method: :delete, data: { confirm: 'Are you sure?' }, class: 'button btn btn-danger' %> 
+                <%= link_to 'All Lessons', @student_lessons_path, class: 'button btn btn-success' %> 
               </div>
  
           </div>
@@ -62,16 +62,21 @@
 
 
   <div class="col-md-6">
-    <h3> Next/Most Recent Lesson: </h3>
-
-        <%= link_to 'Create New Lesson', new_lesson_path, class: 'button btn btn-info' %>
+    <div class="row">
+      <div class="float-left">
+      <h3> Next/Most Recent Lesson: </h3>
+      </div>
+      <div>
+          <%= link_to 'Create New Lesson', new_lesson_path, class: 'button btn btn-info' %>
+      </div>
+    </div>
 
       <% @lessons.each do |lesson| %>
         <div class="card">
           <div class="card-header">
             <strong>Lesson Date:</strong>
             <% if lesson.lesson_date != nil %>
-           <%= lesson.lesson_date.strftime("%b %d, %Y") %>
+           <%= lesson.lesson_date.strftime("%b %d, %Y | %l:%M %p") %>
            <% end %>
           </div>
           <div class="card-header header-reminder">
@@ -79,12 +84,16 @@
            <%= lesson.reminder %>
           </div>
           <div class="card-body">
-            <h5 class="card-title"><%= lesson.status %> | <strong>Grade: </strong><%= lesson.grade %></h5>
+            <h5 class="card-title">
+              <strong>Status: </strong><% if lesson.status != nil %>
+              <%= lesson.status.humanize %>
+              <% end %> 
+              | <strong>Grade: </strong><%= lesson.grade %></h5>
             <p class="card-text">
             <p> <strong>Teacher Notes: </strong><%= lesson.teachernote %> </p>
             <p> <strong>Notes to Student: </strong><%= lesson.studentnote %> </p>
 
-            <%= link_to 'Edit/Complete This Lesson', edit_lesson_path, class: 'button btn btn-info' %><br>
+            <%= link_to 'Edit/Complete This Lesson', edit_lesson_path(lesson), class: 'button btn btn-info' %><br>
             <%= paginate @lessons %><br>
             <%= page_entries_info @lessons, entry_name: 'Lesson' %>
 
@@ -94,6 +103,7 @@
 
   </div>
 
-      
+   <%= link_to 'Show All Lessons for this Student', student_lessons_path(id: params[:id]), class: 'button btn btn-info' %> 
+
 </div>
 <%= link_to 'Back to All Students', students_path, class: 'button btn btn-info' %>    

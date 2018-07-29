@@ -1,0 +1,36 @@
+<p id="notice"><%= notice %></p>
+
+<h1>All Lessons</h1>
+<h3>Student: <%= @student.firstname %> <%=@student.lastname %> </h3>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Lesson Date</th>
+      <th>Status</th>
+      <th>Grade</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @lessons.each do |lesson| %>
+      <tr>
+        <td><%= lesson.student.firstname %></td>
+        <td><%= lesson.student.lastname %></td>
+        <td><%= lesson.lesson_date %></td>
+        <td><%= lesson.status.humanize %></td>
+        <td><%= lesson.grade %></td>
+        <td><%= link_to 'View Notes', lesson, class: 'button btn btn-info' %></td>
+        <td><%= link_to 'Edit Notes/Date', edit_lesson_path(lesson), class: 'button btn btn-info' %></td>
+        <td><%= link_to 'Delete', lesson, method: :delete, data: { confirm: 'Are you sure you want to delete this lesson? Click "cancel" to keep it.' }, class: 'button btn btn-danger' %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Lesson', new_lesson_path %>

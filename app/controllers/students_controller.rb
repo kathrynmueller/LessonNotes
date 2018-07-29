@@ -12,7 +12,8 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @lesson = Lesson.new
+    @lesson = Lesson.find(params[:id])
+    # @lesson = Lesson.new
     @lessons = @student.lessons.order(lesson_date: :desc).page(params[:page]).per(1)
 
   end
