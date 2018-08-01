@@ -43,6 +43,6 @@
 <br>
 <%= link_to 'Set up Next Lesson', new_lesson_path, class: 'button btn btn-success' %>
 
-<%= link_to 'Go to Student Info', show_student_path(id: params[:student_id]), class: 'button btn btn-success' %>
+<%= link_to 'Go to Student Info', show_student_path(id: @lesson.student_id), class: 'button btn btn-success' %>
 
-<%= link_to 'Show All Lessons for this Student', student_lessons_path(id: params[:student_id]), class: 'button btn btn-info' %> 
+<%= link_to 'Show All Lessons for this Student', student_lessons_path(id: @lesson.student_id), class: 'button btn btn-info' %> 

@@ -18,23 +18,31 @@
 @import "bootstrap-datepicker";
 
 .navbar {
+	background-image: image-url('hip-square.png');
 	background-color: lightseagreen;
 	color: white;
 }
 
 .navbar-brand {
-	color: white;
-	font-size: 48px;
+	color: lightseagreen;
+	font-size: 54px;
 	font-family: Impact, Charcoal, sans-serif;
-	text-shadow: 3px 2px black;
+	text-shadow: 1px 1px black;
 }
 
 .container {
-	background-image: image-url('hip-square.png');
+
 	margin-top: 0px;
 	padding-top: 20px;
 	padding-bottom: 20px;
 	height: 100%;
+}
+
+.header-bar {
+	background-color: lightseagreen;
+	color: white;
+	text-align: center;
+	padding-left: 30px;
 }
 
 .bg-white {

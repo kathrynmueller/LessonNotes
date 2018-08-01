@@ -5,7 +5,6 @@ class StudentsController < ApplicationController
   # GET /students.json
   def index
     @students = Student.all.order(lastname: :asc).page(params[:page]).per(5)
-    # @lastlesson = @student.lessons.last
 
   end
 

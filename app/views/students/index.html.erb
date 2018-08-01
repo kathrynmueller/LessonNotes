@@ -1,12 +1,14 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Students</h1>
+<div class="row header-bar">
+  <h1>All Students</h1>
+</div>
 
 <table class="table bg-white">
   <thead>
     <tr>
-      <th>Firstname</th>
-      <th>Lastname</th>
+      <th>First Name</th>
+      <th>Last Name</th>
       <th>Lesson Time</th>
       <th>Next Lesson</th>
       <th colspan="4"></th>
@@ -30,7 +32,10 @@
             <% end %>
         <% end %>
 
-        <td><%= link_to 'Edit this Lesson', new_lesson_path(student), class: "button btn btn-info" %></td>
+        <% if student.lessons.last != nil %>
+        <td><%= link_to 'Edit this Lesson', root_path, class: "button btn btn-info" %></td>
+        <% end %>
+
         <td><%= link_to 'View/Edit Student Info', student, class: "button btn btn-info" %></td>
       </tr>
     <% end %>

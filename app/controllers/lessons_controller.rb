@@ -4,13 +4,13 @@ class LessonsController < ApplicationController
   # GET /lessons
   # GET /lessons.json
   def index
-    @lessons = Lesson.all
+    @lessons = Lesson.all.order(lesson_date: :desc)
   end
 
   # GET /lessons/1
   # GET /lessons/1.json
   def show
-    @student = Student.find(params[:id])
+    # @student = Student.find(params[:id])
   end
 
   # GET /lessons/new
@@ -27,6 +27,9 @@ class LessonsController < ApplicationController
   # POST /lessons.json
   def create
     @lesson = Lesson.new(lesson_params)
+
+    LessonMailer.new_lesson(@lesson).deliver_now
+    StudentMailer.new_lesson(@lesson).deliver_now
 
     respond_to do |format|
       if @lesson.save
