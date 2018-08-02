@@ -38,6 +38,11 @@
 	height: 100%;
 }
 
+.nav-tabs {
+	font-family: Impact, Charcoal, sans-serif;
+	font-size: large;
+}
+
 .header-bar {
 	background-color: lightseagreen;
 	color: white;
@@ -57,7 +62,10 @@ h2 {
 	margin-bottom: 10px;
 }
 
-.card {
+.lesson-card {
+	margin-top: 20px;
+	border: 2px solid black;
+	padding: 10px;
 }
  
 .header-reminder {

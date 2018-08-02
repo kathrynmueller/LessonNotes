@@ -83,15 +83,19 @@
             <strong>Reminder:</strong>
            <%= lesson.reminder %>
           </div>
+           <p> <strong>Notes to Student: </strong><%= lesson.studentnote %> </p>
+         </div>
+
+         <div class="card">
           <div class="card-body">
-            <h5 class="card-title">
-              <strong>Status: </strong><% if lesson.status != nil %>
+              <p><strong>Status: </strong><% if lesson.status != nil %>
               <%= lesson.status.humanize %>
               <% end %> 
-              | <strong>Grade: </strong><%= lesson.grade %></h5>
+              </p>
+              <p> <strong>Grade: </strong><%= lesson.grade %></p>
             <p class="card-text">
-            <p> <strong>Teacher Notes: </strong><%= lesson.teachernote %> </p>
-            <p> <strong>Notes to Student: </strong><%= lesson.studentnote %> </p>
+            <p> <strong>Teacher Notes: </strong><br><%= lesson.teachernote %> </p>
+           
 
             <%= link_to 'Edit/Complete This Lesson', edit_lesson_path(lesson), class: 'button btn btn-info' %><br>
             <%= paginate @lessons %><br>

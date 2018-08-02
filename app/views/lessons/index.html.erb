@@ -19,7 +19,7 @@
   <tbody>
     <% @lessons.each do |lesson| %>
       <tr>
-        <td><%= link_to lesson.student.firstname, show_student_path(id: lesson.student_id) %> <%= lesson.student.lastname %></td>
+        <td><%= link_to lesson.student.first_last_name, show_student_path(id: lesson.student_id) %> </td>
         <td><%= lesson.lesson_date.strftime('%B %e, %l:%M %p ') %></td>
         <td><%= lesson.status.try(:humanize) %></td>
         <td><%= lesson.grade %></td>

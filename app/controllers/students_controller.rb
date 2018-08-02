@@ -11,7 +11,7 @@ class StudentsController < ApplicationController
   # GET /students/1
   # GET /students/1.json
   def show
-    @lesson = Lesson.find(params[:id])
+    @lesson = @student.lessons.last
     # @lesson = Lesson.new
     @lessons = @student.lessons.order(lesson_date: :desc).page(params[:page]).per(1)
 

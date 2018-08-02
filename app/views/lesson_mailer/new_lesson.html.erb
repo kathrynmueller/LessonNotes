@@ -1,7 +1,7 @@
 <p>
-	A new lesson was created for <%= @student.firstname %>.
+	A new lesson was created for <%= @student.first_last_name %>, at <%= @lesson.lesson_date.strftime('%a, %B %e, %l:%M %p ')%>.
 </p>
-
+<p><strong>Reminder:</strong></p>
 <blockquote>
 	<%= @lesson.reminder %>
 </blockquote>

@@ -7,8 +7,7 @@
 <table class="table bg-white">
   <thead>
     <tr>
-      <th>First Name</th>
-      <th>Last Name</th>
+      <th>Name</th>
       <th>Lesson Time</th>
       <th>Next Lesson</th>
       <th colspan="4"></th>
@@ -18,12 +17,11 @@
   <tbody>
     <% @students.each do |student| %>
       <tr>
-        <td><%= student.firstname %></td>
-        <td><%= student.lastname %></td>   
+        <td><%= student.first_last_name %></td>  
         <td><%= student.lessontime %></td>
 
         <% if student.lessons.last == nil %>
-          <td> * No lessons for this student * </td>
+          <td> * No lessons for student * </td>
         <% else %>
             <% if student.lessons.last.lesson_date.past? %>
               <td> * No next lesson scheduled * </td>
@@ -33,10 +31,12 @@
         <% end %>
 
         <% if student.lessons.last != nil %>
-        <td><%= link_to 'Edit this Lesson', root_path, class: "button btn btn-info" %></td>
+        <td><%= link_to 'Edit Lesson', edit_lesson_path(student.lessons.last), class: "button btn btn-info" %></td>
+        <% else %>
+        <td></td>
         <% end %>
 
-        <td><%= link_to 'View/Edit Student Info', student, class: "button btn btn-info" %></td>
+        <td><%= link_to 'View/Edit Student', student, class: "button btn btn-info" %></td>
       </tr>
     <% end %>
 

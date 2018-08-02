@@ -11,51 +11,61 @@
     </div>
   <% end %>
 
-
-  <h2>Enter Lesson Notes:</h2>
+  <div class="card lesson-card">
+    <div class="card-header">
+      <div class="field">
+        <%= form.collection_select :student_id, Student.all, :id, :first_last_name %>
+      </div>
+    </div>
 
     <div class="field">
-    <%= form.collection_select :student_id, Student.all, :id, :first_last_name %>
-   </div>
-   <br>
+      <%= form.label :lesson_date %>
+      <%= form.datetime_field :lesson_date %>
+    </div>
 
-  <div class="field">
-  <%= form.label :lesson_date %>
-   <%= form.datetime_field :lesson_date %>
+    <div class="field">
+      <%= form.label :studentnote %>
+      <br>
+      <%= form.text_area :studentnote %>
+    </div>
+
+    <div class="field">
+      <%= form.label :reminder %>
+      <br>
+      <%= form.text_area :reminder %>
+    </div>
   </div>
 
-  <div class="field">
+  <div class="card lesson-card">
 
-    <%= form.radio_button :status, "completed" %>
-    <%= form.label :status_completed, "Completed" %>
-    <%= form.radio_button :status, "cancelled" %>
-    <%= form.label :status_cancelled, "Cancelled" %>
-    <%= form.radio_button :status, "no_show" %>
-    <%= form.label :status_no_show, "No-Show" %><br>
-  
+    <div class="field">
+
+      <%= form.radio_button :status, "completed" %>
+      <%= form.label :status_completed, "Completed" %>
+      <%= form.radio_button :status, "cancelled" %>
+      <%= form.label :status_cancelled, "Cancelled" %>
+      <%= form.radio_button :status, "no_show" %>
+      <%= form.label :status_no_show, "No-Show" %><br>
+    
+    </div>
+
+    <div class="field">
+      <%= form.label :grade %>
+      <%= form.text_field :grade %>
+    </div>
+
+    <div class="field">
+      <%= form.label :teachernote %>
+      <br>
+      <%= form.text_area :teachernote %>
+    </div>
   </div>
 
-  <div class="field">
-    <%= form.label :grade %>
-    <%= form.text_field :grade %>
-  </div>
 
-  <div class="field">
-    <%= form.label :teachernote %>
-    <%= form.text_area :teachernote %>
-  </div>
 
-  <div class="field">
-    <%= form.label :studentnote %>
-    <%= form.text_area :studentnote %>
-  </div>
 
-  <div class="field">
-    <%= form.label :reminder %>
-    <%= form.text_area :reminder %>
-  </div>
+    <div class="actions">
+      <%= form.submit 'Save Lesson', class: 'btn btn-success'%>
+    </div>
 
-  <div class="actions">
-    <%= form.submit 'Save Lesson', class: 'btn btn-success'%>
-  </div>
 <% end %>

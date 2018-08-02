@@ -1,11 +1,20 @@
 <p>
-  A new lesson was created for you, <%= @student.firstname %>.
+A new lesson was created for you, <%= @student.firstname %>.
 </p>
 
 <p>
-Your lesson time is <%= @lesson.lesson_date %>
+Your next lesson is <strong><%= @lesson.lesson_date.strftime('%a, %B %e, %l:%M %p ') %>.</strong>
 </p>
 
 <p>
+Here's a note from your teacher:
+</p>
+<blockquote>
 <%= @lesson.studentnote %>
-</p>
+</blockquote>
+
+<p>See you next lesson!</p>
+
+<p>-----------------------------------</p>
+
+<p>Sent by LessonNotes on behalf of your fabulous teacher</p>

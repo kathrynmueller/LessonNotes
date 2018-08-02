@@ -1,7 +1,13 @@
 A new lesson was created for you, <%= @student.firstname %>.
 
-Your lesson time is <%= @lesson.lesson_date %>
+Your lesson time is <%= @lesson.lesson_date.strftime('%a, %B %e, %l:%M %p ') %>.
 
-Here are some notes from your last lesson:
+Here's a note from your teacher:
 
 <%= @lesson.studentnote %>
+
+See you next lesson!
+
+-----------------------------------
+
+Sent by LessonNotes on behalf of your fabulous teacher

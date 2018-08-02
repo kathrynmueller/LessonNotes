@@ -9,7 +9,7 @@ class StudentMailer < ApplicationMailer
     @lesson = lesson
     @student = @lesson.student
 
-    mail to: @student.email, subject: "New Lesson Reminder for you, #{@student.firstname}"
+    mail to: @student.email, subject: "Lesson Time & Note for you, #{@student.firstname}"
   end
 
 end

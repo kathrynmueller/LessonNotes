@@ -13,13 +13,7 @@
     <nav class="navbar navbar-default">
       <a class="navbar-brand" href="/">Lesson Notes</a>
       <ul class="navbar-nav mr-auto">
-
-        <li class="nav-item">
-          <%= link_to 'All Students', students_path %>
-        </li>
-        <li class="nav-item">
-          <%= link_to 'All Lessons', lessons_path %>
-        </li>
+        <!-- in case there are other links someday -->
       </ul>
 
       <ul class="nav navbar-nav navbar-right">
@@ -38,6 +32,20 @@
       </ul>
       
     </nav>
+
+    <ul class="nav nav-tabs">
+      <li class="nav-item">
+        <%= link_to 'All Students', students_path, class: "nav-link active" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'All Lessons', lessons_path, class:"nav-link" %>
+      </li>
+      <li class="nav-item">
+        <%= link_to 'Create New Lesson', new_lesson_path, class:"nav-link" %>
+      </li>
+  </ul>
+
+
     <div class="container">
 
 
