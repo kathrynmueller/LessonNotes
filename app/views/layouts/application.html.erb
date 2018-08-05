@@ -33,28 +33,17 @@
       
     </nav>
 
-    <ul class="nav nav-tabs">
-      <li class="nav-item">
-        <%= link_to 'All Students', students_path, class: "nav-link active" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'All Lessons', lessons_path, class:"nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to 'Create New Lesson', new_lesson_path, class:"nav-link" %>
-      </li>
-  </ul>
-
 
     <div class="container">
 
-
-
      <%= yield %>
+     
+   </div>
 
 
-    </div>
-
+<footer>
+  <p>© Lesson Notes 2018</p>
+</footer>
 
   </body>
 </html>

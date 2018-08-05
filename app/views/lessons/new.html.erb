@@ -1,7 +1,19 @@
-<div class="row header-bar">
-  <h1>New Lesson</h1>
-</div>
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <%= link_to 'All Students', students_path, class: "nav-link" %>
+	  </li>
+	  <li class="nav-item">
+	    <%= link_to 'All Lessons', lessons_path, class: "nav-link" %>
+	  </li>
+	  <li class="nav-item">
+	    <%= link_to 'Create New Lesson', new_lesson_path, class: "nav-link", id: "active" %>
+	  </li>
+	</ul>
 
-<%= render 'form', lesson: @lesson %>
+		<div class="header-bar">
+		  <h1>New Lesson</h1>
+		</div>
 
-<%= link_to 'Back', lessons_path %>
+	<%= render 'form', lesson: @lesson %>
+
+	<%= link_to 'Back', lessons_path %>

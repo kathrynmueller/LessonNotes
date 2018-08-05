@@ -14,31 +14,31 @@
   <div class="card lesson-card">
     <div class="card-header">
       <div class="field">
-        <%= form.collection_select :student_id, Student.all, :id, :first_last_name %>
+        <%= form.collection_select :student_id, Student.all.order(lastname: :asc), :id, :first_last_name, :prompt => "SELECT STUDENT" %>
       </div>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :lesson_date %>
       <%= form.datetime_field :lesson_date %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :studentnote %>
       <br>
-      <%= form.text_area :studentnote %>
+      <%= form.text_area :studentnote, class: "form-control" %>
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :reminder %>
       <br>
-      <%= form.text_area :reminder %>
+      <%= form.text_area :reminder, class: "form-control" %>
     </div>
   </div>
 
   <div class="card lesson-card">
 
-    <div class="field">
+    <div class="form-group">
 
       <%= form.radio_button :status, "completed" %>
       <%= form.label :status_completed, "Completed" %>
@@ -49,15 +49,15 @@
     
     </div>
 
-    <div class="field">
+    <div class="form-group">
       <%= form.label :grade %>
       <%= form.text_field :grade %>
     </div>
 
-    <div class="field">
+    <div class="form-group>
       <%= form.label :teachernote %>
       <br>
-      <%= form.text_area :teachernote %>
+      <%= form.text_area :teachernote, class: "form-control" %>
     </div>
   </div>
 

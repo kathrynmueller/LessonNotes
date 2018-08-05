@@ -21,6 +21,9 @@
 	background-image: image-url('hip-square.png');
 	background-color: lightseagreen;
 	color: white;
+	padding-left: 40px;
+	padding-right: 40px;
+	border-bottom: 1px solid gray;
 }
 
 .navbar-brand {
@@ -38,16 +41,35 @@
 	height: 100%;
 }
 
+
 .nav-tabs {
-	font-family: Impact, Charcoal, sans-serif;
 	font-size: large;
+	border: none;
 }
+
+#active {
+    background-color: lightseagreen;
+    color: #fff;
+    border-color: white;
+    border-bottom: none;
+}
+
+
+
+.nav-tabs li a {
+	background-color: lightseagreen;
+    color: #fff;
+    border-color: white !important;
+}
+
 
 .header-bar {
 	background-color: lightseagreen;
 	color: white;
-	text-align: center;
-	padding-left: 30px;
+	padding-left: 15px;
+	margin-top: none;
+	border-left: 1px solid white;
+	border-right: 1px solid white;
 }
 
 .bg-white {
@@ -77,4 +99,15 @@ h2 {
     left: 0;
     bottom: 0;
     width: 100%;
+}
+
+footer {
+	background-color: lightseagreen;
+	background-image: image-url('hip-square.png');
+	color: black;
+	text-align: center;
+	padding-top: 20px;
+	padding-bottom: 20px;
+	border-top: 1px solid gray;
+
 }

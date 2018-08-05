@@ -1,9 +1,22 @@
-<div class="row header-bar">
-  <h1>Edit Lesson</h1>
-</div>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to 'All Students', students_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'All Lessons', lessons_path, class:"nav-link"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Create New Lesson', new_lesson_path, class:"nav-link" %>
+  </li>
+</ul>
+
+	<div class="header-bar">
+		  <h1>Edit Lesson</h1>
+		</div>
 
 <%= render 'form', lesson: @lesson %>
 
 <%= link_to 'Show', @lesson %> |
 <%= link_to 'Delete Lesson', @lesson, method: :delete, data: { confirm: 'Are you sure? Click "Cancel" to keep this lesson.' }, class: 'button btn btn-danger' %>
 <%= link_to 'Back', lessons_path %>
+
