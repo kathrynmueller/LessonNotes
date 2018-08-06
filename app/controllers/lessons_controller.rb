@@ -28,13 +28,16 @@ class LessonsController < ApplicationController
   def create
     @lesson = Lesson.new(lesson_params)
 
-    LessonMailer.new_lesson(@lesson).deliver_now
-    StudentMailer.new_lesson(@lesson).deliver_now
-
     respond_to do |format|
       if @lesson.save
+
+        Resque.enqueue(TeacherReminder, @lesson.id)  
+        StudentMailer.new_lesson(@lesson).deliver_now
+
         format.html { redirect_to @lesson.student, notice: 'Lesson was successfully created.' }
         format.json { render :show, status: :created, location: @lesson }
+
+
       else
         format.html { render :new }
         format.json { render json: @lesson.errors, status: :unprocessable_entity }
