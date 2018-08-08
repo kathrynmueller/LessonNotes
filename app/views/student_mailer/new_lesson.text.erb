@@ -2,9 +2,11 @@ A new lesson was created for you, <%= @student.firstname %>.
 
 Your lesson time is <%= @lesson.lesson_date.strftime('%a, %B %e, %l:%M %p ') %>.
 
+<% if @lesson.studentnote.present? %>
 Here's a note from your teacher:
 
 <%= @lesson.studentnote %>
+<% end %>
 
 See you next lesson!
 
