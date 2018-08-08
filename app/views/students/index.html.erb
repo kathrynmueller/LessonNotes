@@ -30,7 +30,7 @@
     <% @students.each do |student| %>
       <tr>
         <td><%= student.first_last_name %></td>  
-        <td><%= student.lessontime %></td>
+        <td><%= student.lesson_time %></td>
 
         <% if student.lessons.last == nil %>
           <td> * No lessons for student * </td>
@@ -48,7 +48,7 @@
         <td></td>
         <% end %>
 
-        <td><%= link_to 'View/Edit Student', student, class: "button btn btn-info" %></td>
+        <td><%= link_to 'View Student', student, class: "button btn btn-info" %></td>
       </tr>
     <% end %>
 
