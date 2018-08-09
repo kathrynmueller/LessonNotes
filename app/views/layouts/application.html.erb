@@ -38,7 +38,7 @@
 
 
       <div class="quote-bar">
-        <% if Quote.all.count != 0 %>
+        <% if Quote.any? %>
           <blockquote class="blockquote mb-0">
             <%= Quote.all.sample.quote %> 
             <footer class="blockquote-footer">
