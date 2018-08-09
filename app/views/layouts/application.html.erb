@@ -19,6 +19,9 @@
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
+            <%= current_user.email %>
+          </li>
+          <li>
             <%=link_to 'Edit Your Profile', edit_user_registration_path %>
           </li>
           <li>
@@ -34,7 +37,14 @@
     </nav>
 
 
+
+
     <div class="container">
+
+      <div class="row quote-bar">
+        <%= Quote.all.sample.quote %>
+        - <%= Quote.all.sample.author %>
+      </div>
 
      <%= yield %>
      

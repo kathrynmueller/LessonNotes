@@ -1,5 +1,6 @@
 class LessonsController < ApplicationController
   before_action :set_lesson, only: [:show, :edit, :update, :destroy]
+  # before_action :set_user, only: [:new, :create]
 
   # GET /lessons
   # GET /lessons.json
@@ -86,8 +87,12 @@ class LessonsController < ApplicationController
       @lesson = Lesson.find(params[:id])
     end
 
+    def set_user
+        @user = User.find(params[:id])
+    end
+
     # Never trust parameters from the scary internet, only allow the white list through.
     def lesson_params
-      params.require(:lesson).permit(:student_id, :lesson_date, :status, :grade, :teachernote, :studentnote, :reminder)
+      params.require(:lesson).permit(:student_id, :lesson_date, :status, :grade, :teachernote, :studentnote, :reminder, :user_id)
     end
 end

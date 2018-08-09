@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_08_08_140605) do
+ActiveRecord::Schema.define(version: 2018_08_09_001200) do
 
   create_table "lessons", force: :cascade do |t|
     t.string "status"
@@ -22,12 +22,21 @@ ActiveRecord::Schema.define(version: 2018_08_08_140605) do
     t.datetime "updated_at", null: false
     t.integer "student_id"
     t.datetime "lesson_date"
+    t.integer "user_id"
+  end
+
+  create_table "quotes", force: :cascade do |t|
+    t.string "quote"
+    t.string "author"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.integer "user_id"
   end
 
   create_table "students", force: :cascade do |t|
     t.string "firstname"
     t.string "lastname"
-    t.integer "phone", limit: 10
+    t.integer "phone", limit: 8
     t.string "email"
     t.text "experience"
     t.text "interests"

@@ -9,6 +9,6 @@ class LessonMailer < ApplicationMailer
     @lesson = lesson
     @student = @lesson.student
 
-    mail to: "kathrynmueller@gmail.com", subject: "New Lesson for #{@student.firstname}"
+    mail to: @lesson.user.email, subject: "New Lesson for #{@student.firstname}"
   end
 end
