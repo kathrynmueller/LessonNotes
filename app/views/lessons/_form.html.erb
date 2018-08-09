@@ -12,6 +12,7 @@
   <% end %>
 
   <div class="card lesson-card">
+    
     <div class="card-header">
       <div class="field">
         <%= form.collection_select :student_id, Student.all.order(lastname: :asc), :id, :first_last_name, :prompt => "SELECT STUDENT" %>

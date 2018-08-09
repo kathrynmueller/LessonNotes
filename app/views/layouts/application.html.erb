@@ -37,21 +37,23 @@
     </nav>
 
 
+      <div class="quote-bar">
+      <blockquote class="blockquote mb-0">
+        <%= Quote.all.sample.quote %> 
+        <footer class="blockquote-footer"><%= Quote.all.sample.author %></footer>
+      </blockquote>
+    </div>
 
 
     <div class="container">
 
-      <div class="row quote-bar">
-        <%= Quote.all.sample.quote %>
-        - <%= Quote.all.sample.author %>
-      </div>
 
      <%= yield %>
      
    </div>
 
 
-<footer>
+<footer class="page-footer">
   <p>© Lesson Notes 2018</p>
 </footer>
 

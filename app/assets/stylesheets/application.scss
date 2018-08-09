@@ -18,19 +18,29 @@
 @import "bootstrap-datepicker";
 
 .navbar {
-	background-image: image-url('hip-square.png');
-	background-color: lightseagreen;
+	/*background-image: image-url('hip-square.png');*/
+	background-color: #F07142;
 	color: white;
-	padding-left: 40px;
-	padding-right: 40px;
+	padding: 0px 0px 0px 40px;
 	border-bottom: 1px solid gray;
 }
 
 .navbar-brand {
-	color: lightseagreen;
-	font-size: 54px;
+	color: black;
+	font-size: 32px;
 	font-family: Impact, Charcoal, sans-serif;
-	text-shadow: 1px 1px black;
+	/*text-shadow: 1px 1px black;*/
+}
+
+.navbar-right {
+	background-color: #174559;
+	width: 30%;
+	height: 100%;
+	color: white;
+	text-align: right;
+	margin: 0;
+	padding: 20px;
+
 }
 
 .container {
@@ -41,6 +51,11 @@
 	height: 100%;
 }
 
+.quote-bar {
+	background-color: #B9C0C4;
+	padding: 20px 20px 20px 50px;
+	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
+}
 
 .nav-tabs {
 	font-size: large;
@@ -101,10 +116,10 @@ h2 {
     width: 100%;
 }
 
-footer {
-	background-color: lightseagreen;
-	background-image: image-url('hip-square.png');
-	color: black;
+.page-footer {
+	background-color: #174559;
+	/*background-image: image-url('hip-square.png');*/
+	color: white;
 	text-align: center;
 	padding-top: 20px;
 	padding-bottom: 20px;

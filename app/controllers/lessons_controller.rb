@@ -17,7 +17,8 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   def new
     @lesson = Lesson.new
-    # @student = Student.find(params[:student_id]) if params.has_key?(:student_id)
+    @student = Student.find(params[:student_id]) if params.has_key?(:student_id)
+    @lesson.student = @student
   end
 
   # GET /lessons/1/edit
@@ -32,8 +33,8 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
 
-        Resque.enqueue(TeacherReminder, @lesson.id)
-        # LessonMailer.new_lesson(@lesson).deliver_now 
+        # Resque.enqueue(TeacherReminder, @lesson.id)
+        LessonMailer.new_lesson(@lesson).deliver_now 
 
         StudentMailer.new_lesson(@lesson).deliver_now
 

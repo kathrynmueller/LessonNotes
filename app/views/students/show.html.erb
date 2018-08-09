@@ -83,7 +83,7 @@
       <h3> Next/Most Recent Lesson: </h3>
       </div>
       <div>
-          <%= link_to 'Create New Lesson', new_lesson_path, class: 'button btn btn-info' %>
+          <%= link_to 'Create New Lesson', new_lesson_path(student_id: @student.id), class: 'button btn btn-info' %>
       </div>
     </div>
 
