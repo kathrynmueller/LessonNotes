@@ -38,11 +38,16 @@
 
 
       <div class="quote-bar">
-      <blockquote class="blockquote mb-0">
-        <%= Quote.all.sample.quote %> 
-        <footer class="blockquote-footer"><%= Quote.all.sample.author %></footer>
-      </blockquote>
-    </div>
+        <% if Quote.all.count != 0 %>
+          <blockquote class="blockquote mb-0">
+            <%= Quote.all.sample.quote %> 
+            <footer class="blockquote-footer">
+              <%= Quote.all.sample.author %>
+            </footer>
+        </blockquote>
+          <% end %>
+      </div>
+
 
 
     <div class="container">
