@@ -36,7 +36,11 @@
         <td><%= lesson.lesson_date.strftime('%B %e, %l:%M %p ') %></td>
         <td><%= lesson.status.try(:humanize) %></td>
         <td><%= lesson.grade %></td>
-        <td><%= lesson.reminder %></td>
+        <td><%= lesson.reminder.first(20) %>
+          <% if lesson.reminder.length > 20 %>
+            ...</p>
+          <% end %>
+        </td>
         <td><%= link_to 'View', lesson, class: 'button btn btn-info' %></td>
         <td><%= link_to 'Edit', edit_lesson_path(lesson), class: 'button btn btn-info' %></td>
         <td><%= link_to 'Delete', lesson, method: :delete, data: { confirm: 'Are you sure you want to delete this lesson? Click "cancel" to keep it.' }, class: 'button btn btn-danger' %></td>
@@ -48,4 +52,4 @@
 
 <br>
 
-<%= link_to 'New Lesson', new_lesson_path %>
+<%= link_to 'New Lesson', new_lesson_path, class: "button btn btn-success" %>

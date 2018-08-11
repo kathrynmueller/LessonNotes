@@ -43,6 +43,7 @@ gem 'devise'
 gem 'figaro'
 gem 'resque-web', :require => 'resque/server'
 gem 'resque-scheduler'
+gem 'redcarpet'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console

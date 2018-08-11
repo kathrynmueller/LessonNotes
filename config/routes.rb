@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  get 'home/help'
   devise_for :users
   resources :lessons
   resources :students
@@ -11,6 +12,7 @@ Rails.application.routes.draw do
   get 'lessons_by_student' => 'lessons#lessons_by_student', as: 'student_lessons'
   get 'new_quote'=> 'quotes#new'
   get 'quotes' => 'quotes#index'
+  get 'help' => 'home#help'
 
   mount Resque::Server, :at => "/resque"
   

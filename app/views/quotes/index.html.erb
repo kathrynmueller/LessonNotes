@@ -1,9 +1,22 @@
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to 'All Students', students_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'All Lessons', lessons_path, class:"nav-link"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Create New Lesson', new_lesson_path, class:"nav-link" %>
+  </li>
+</ul>
 
-<h1>Quotes</h1>
+<div class="header-bar">
+  <h1>Manage Quotes</h1>
+</div>
 
 <p id="notice"><%= notice %></p>
 
-<table>
+<table class="table">
   <thead>
     <tr>
       <th>Quote</th>
@@ -17,9 +30,9 @@
       <tr>
         <td><%= quote.quote %></td>
         <td><%= quote.author %></td>
-        <td><%= link_to 'Show', quote %></td>
-        <td><%= link_to 'Edit', edit_quote_path(quote) %></td>
-        <td><%= link_to 'Destroy', quote, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'View', quote, class: 'button btn btn-info' %></td>
+        <td><%= link_to 'Edit', edit_quote_path(quote), class: 'button btn btn-info' %></td>
+        <td><%= link_to 'Delete', quote, method: :delete, class: 'button btn btn-danger', data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -27,4 +40,6 @@
 
 <br>
 
-<%= link_to 'New Quote', new_quote_path %>
+<hr>
+
+<%= link_to 'New Quote', new_quote_path, class: 'button btn btn-success' %>

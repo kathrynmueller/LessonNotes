@@ -17,7 +17,7 @@
 </div>
 
 <div class="row">
-  <div class="col-md-6">
+  <div class="col-md-5">
     <div class="card student-card">
         <div class="card-header">
           <h3><strong>Name:</strong>
@@ -34,7 +34,7 @@
             <strong>Lesson Time:</strong>
             <%= @student.lesson_time %>
           </p>
-
+          <hr>
           <p>
             <strong>Phone:</strong>
             <%= number_to_phone(@student.phone, area_code: true) %>
@@ -49,73 +49,64 @@
             <strong>Date of Birth:</strong>
             <%= @student.dob %>
           </p>
-
+           <hr>
           <p>
             <strong>Experience:</strong>
-            <%= @student.experience %>
+            <%= markdown (@student.experience) %>
           </p>
 
           <p>
             <strong>Interests:</strong>
-            <%= @student.interests %>
+            <%= markdown (@student.interests) %>
           </p>
 
-          <div class="row">
-              <div class="col-md-6">
                 <%= link_to 'Edit Student Info', edit_student_path(@student), class: 'button btn btn-info' %>
-              </div>
-              <div class="col-md-6">
-                <%= link_to 'All Lessons', @student_lessons_path, class: 'button btn btn-success' %> 
-              </div>
  
-          </div>
         </div>
 
       </div>
 
   </div>
 
+  <div class="col-md-2 middle-links">
 
+    <%= link_to 'New Lesson for This Student', new_lesson_path(student_id: @student.id), class: 'button btn btn-info' %>
 
-  <div class="col-md-6">
-    <div class="row">
-      <div class="float-left">
-      <h3> Next/Most Recent Lesson: </h3>
-      </div>
-      <div>
-          <%= link_to 'Create New Lesson', new_lesson_path(student_id: @student.id), class: 'button btn btn-info' %>
-      </div>
-    </div>
+    <%= link_to 'All Lessons for This Student', student_lessons_path(id: params[:id]), class: 'button btn btn-info' %> 
+  </div>
+
+  <div class="col-md-5">
 
       <% @lessons.each do |lesson| %>
         <div class="card">
           <div class="card-header">
+            <h3><strong>Lessons</strong></h3>
+          </div>
+          <div class="card-body">
             <strong>Lesson Date:</strong>
             <% if lesson.lesson_date != nil %>
            <%= lesson.lesson_date.strftime("%b %d, %Y | %l:%M %p") %>
            <% end %>
-          </div>
-          <div class="card-header header-reminder">
-            <strong>Reminder:</strong>
-           <%= lesson.reminder %>
-          </div>
-           <p> <strong>Notes to Student: </strong><%= lesson.studentnote %> </p>
+          <div class="header-reminder">
+            <strong>Reminder:</strong><br>
+           <%= markdown lesson.reminder %>
          </div>
+           <p> <strong>Notes to Student: </strong><br>
+            <%= markdown lesson.studentnote %> </p>
+          <hr>
 
-         <div class="card">
-          <div class="card-body">
               <p><strong>Status: </strong><% if lesson.status != nil %>
               <%= lesson.status.humanize %>
               <% end %> 
               </p>
               <p> <strong>Grade: </strong><%= lesson.grade %></p>
             <p class="card-text">
-            <p> <strong>Teacher Notes: </strong><br><%= lesson.teachernote %> </p>
+            <p> <strong>Teacher Notes: </strong><br><%= markdown lesson.teachernote %> </p>
            
 
             <%= link_to 'Edit/Complete This Lesson', edit_lesson_path(lesson), class: 'button btn btn-info' %><br>
             <%= paginate @lessons %><br>
-            <%= page_entries_info @lessons, entry_name: 'Lesson' %>
+            
 
           </div>
         </div>
@@ -123,7 +114,4 @@
 
   </div>
 
-   <%= link_to 'Show All Lessons for this Student', student_lessons_path(id: params[:id]), class: 'button btn btn-info' %> 
-
-</div>
-<%= link_to 'Back to All Students', students_path, class: 'button btn btn-info' %>    
+</div>   

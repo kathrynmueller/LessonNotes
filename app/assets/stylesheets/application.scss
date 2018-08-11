@@ -17,15 +17,30 @@
 @import "bootstrap";
 @import "bootstrap-datepicker";
 
+body {
+	/*background-color: #B9C0C4;*/
+}
+
+.jumbotron {
+	background-color: #e3e6e8;
+}
+
 .navbar {
-	/*background-image: image-url('hip-square.png');*/
+
 	background-color: #F07142;
 	color: white;
 	padding: 0px 0px 0px 40px;
 	border-bottom: 1px solid gray;
 }
 
+.navbar img {
+
+	margin: 10px 10px 10px 0px;
+}
+
 .navbar-brand {
+	/*background-image: image-url('Octaaf0320w.jpg');*/
+	/*background-repeat: no-repeat;*/
 	color: black;
 	font-size: 32px;
 	font-family: Impact, Charcoal, sans-serif;
@@ -34,8 +49,8 @@
 
 .navbar-right {
 	background-color: #174559;
-	width: 30%;
-	height: 100%;
+	width: 40%;
+	height: 150px;
 	color: white;
 	text-align: right;
 	margin: 0;
@@ -44,7 +59,7 @@
 }
 
 .container {
-
+	background-color: white;
 	margin-top: 0px;
 	padding-top: 20px;
 	padding-bottom: 20px;
@@ -53,7 +68,7 @@
 
 .quote-bar {
 	background-color: #B9C0C4;
-	padding: 20px 20px 20px 50px;
+	padding: 10px 20px 10px 50px;
 	font-family: "Palatino Linotype", "Book Antiqua", Palatino, serif;
 }
 
@@ -75,13 +90,14 @@
 	background-color: lightseagreen;
     color: #fff;
     border-color: white !important;
+    text-shadow: 1px 1px black;
 }
 
 
 .header-bar {
 	background-color: lightseagreen;
-	color: white;
-	padding-left: 15px;
+	color: black;
+	padding: 10px 10px 5px 15px;
 	margin-top: none;
 	border-left: 1px solid white;
 	border-right: 1px solid white;
@@ -91,22 +107,59 @@
 	background-color: white;
 }
 
-h2 {
-	color: red;
-}
-
 .btn {
 	margin-bottom: 10px;
+	white-space: normal;
+	word-wrap: break-word;
+}
+
+.btn-info {
+	background-color: #174559;
+}
+
+.btn-success {
+	background-color: #F07142;
+}
+
+.btn-danger {
+	background-color: #FF4847;
+}
+
+hr {
+    display: block;
+    height: 1px;
+    border: 0;
+    border-top: 1px solid #ccc;
+    margin: 1em 0;
+    padding: 0;
+}
+
+.card {
+	margin-top: 20px;
+}
+
+.card-header {
+	background-color: #B9C0C4;
+}
+
+.middle-links {
+	padding-top: 100px;
 }
 
 .lesson-card {
-	margin-top: 20px;
-	border: 2px solid black;
 	padding: 10px;
+}
+
+.lesson-card .card-header {
+	margin-bottom: 10px;
 }
  
 .header-reminder {
 	background-color: #ffbf80;
+	padding: 10px;
+	border: 1px solid gray;
+	border-radius: 10px;
+	margin: 20px 0px 20px 0px;
 }
 
 .bottom {
@@ -125,4 +178,8 @@ h2 {
 	padding-bottom: 20px;
 	border-top: 1px solid gray;
 
+}
+
+.page-footer li {
+  	margin: -8px;
 }

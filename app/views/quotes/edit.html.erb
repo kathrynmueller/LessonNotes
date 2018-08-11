@@ -1,6 +1,19 @@
-<h1>Editing Quote</h1>
+<ul class="nav nav-tabs">
+  <li class="nav-item">
+    <%= link_to 'All Students', students_path, class: "nav-link" %>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'All Lessons', lessons_path, class:"nav-link"%>
+  </li>
+  <li class="nav-item">
+    <%= link_to 'Create New Lesson', new_lesson_path, class:"nav-link" %>
+  </li>
+</ul>
 
-<%= render 'form', quote: @quote %>
+<div class="header-bar">
+  <h1>Edit Quote</h1>
+</div>
 
-<%= link_to 'Show', @quote %> |
-<%= link_to 'Back', quotes_path %>
+<%= render 'form', quote: @quote, class: 'button btn btn-info' %>
+
+<%= link_to 'Back to All Quotes', quotes_path, class: 'button btn btn-info' %>

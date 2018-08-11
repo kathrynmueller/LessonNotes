@@ -1,0 +1,77 @@
+	<ul class="nav nav-tabs">
+	  <li class="nav-item">
+	    <%= link_to 'All Students', students_path, class: "nav-link" %>
+	  </li>
+	  <li class="nav-item">
+	    <%= link_to 'All Lessons', lessons_path, class: "nav-link" %>
+	  </li>
+	  <li class="nav-item">
+	    <%= link_to 'Create New Lesson', new_lesson_path, class: "nav-link" %>
+	  </li>
+	</ul>
+
+<div class="header-bar">
+	<h1>Help</h1>
+</div>
+
+<div class="row">
+	<div class="col-md-5">
+		<div class="card">
+			<div class="card-body">
+				<h3>Information</h3>
+				<p>Some instructions for using the app... Umami pork belly biodiesel, chia brunch cornhole palo santo. Drinking vinegar yr wayfarers waistcoat fixie subway tile master cleanse dreamcatcher craft beer meditation polaroid. Typewriter ugh edison bulb live-edge, truffaut seitan hashtag cold-pressed. Health goth butcher subway tile try-hard venmo tumeric, biodiesel chicharrones food truck.</p>
+
+				<p> Austin brooklyn kombucha cliche paleo lyft disrupt subway tile bicycle rights woke bushwick hoodie bespoke flexitarian roof party. Gentrify pickled fashion axe twee photo booth microdosing live-edge tbh woke master cleanse +1 sustainable. </p>
+				<hr>
+				<h4>Customize with Quotes</h4>
+				<p> Click the <span><%=link_to "manage quotes", quotes_path %></span> link in the footer bar to access your personal library of quotes. Each time you refresh a page, you'll see a new quote at the top.</p>
+
+</p>
+			</div>
+		</div>
+	</div>
+	<div class="col-md-2">
+	</div>
+	<div class="col-md-5">
+		<div class="card">
+			<div class="card-header">
+				<h3>Formatting</h3>
+			</div>
+			<div class="card-body">
+			<p>You can add basic formatting to some fields (Student Experience and Interests, Lesson Notes and Reminders) using the following markdown language:</p>
+		<table class="table">
+			<thead>
+		    <tr>
+		      <th>To see:</th>
+		      <th>You type:</th>
+		    </tr>
+		  </thead>
+		  	<tr>
+		       <td><em>italics</em></td>  
+		       <td>*italics*</td>
+		    </tr>
+		    <tr>
+		       <td><strong>bold</strong></td>  
+		       <td>_bold_</td>
+		    </tr>
+		    <tr>
+		       <td><li>list item</li></td>  
+		       <td>- li</td>
+		    </tr>
+		    <tr>
+		       <td><h1>Large Heading</h1></td>  
+		       <td># Large Heading</td>
+		    </tr>
+		    <tr>
+		       <td><h2>Medium Heading</h2></td>  
+		       <td>## Medium Heading</td>
+		    </tr>
+		    <tr>
+		       <td><h3>Small Heading</h3></td>  
+		       <td>### Small Heading</td>
+		    </tr>
+		</table>
+	</div>
+	</div>
+	</div>
+</div>

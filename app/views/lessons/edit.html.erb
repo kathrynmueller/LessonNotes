@@ -16,7 +16,5 @@
 
 <%= render 'form', lesson: @lesson %>
 
-<%= link_to 'Show', @lesson %> |
 <%= link_to 'Delete Lesson', @lesson, method: :delete, data: { confirm: 'Are you sure? Click "Cancel" to keep this lesson.' }, class: 'button btn btn-danger' %>
-<%= link_to 'Back', lessons_path %>
 

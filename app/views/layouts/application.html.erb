@@ -11,16 +11,23 @@
 
   <body>
     <nav class="navbar navbar-default">
-      <a class="navbar-brand" href="/">Lesson Notes</a>
+      <%= link_to root_path do %>
+        <%= image_tag 'ln-logo-white.gif', height: '130px', alt: 'Lesson Notes logo'%>
+     
+      <div class="navbar-brand" href="/">Lesson Notes</div>
+       <% end %>
+     
       <ul class="navbar-nav mr-auto">
         <!-- in case there are other links someday -->
       </ul>
+
 
       <ul class="nav navbar-nav navbar-right">
         <% if user_signed_in? %>
           <li>
             <%= current_user.email %>
           </li>
+          <br>
           <li>
             <%=link_to 'Edit Your Profile', edit_user_registration_path %>
           </li>
@@ -59,7 +66,37 @@
 
 
 <footer class="page-footer">
-  <p>© Lesson Notes 2018</p>
+  <div class="row">
+    <div class="col-md-4">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <%= link_to "All Students", root_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "All Lessons", lessons_path, class: "nav-link" %>
+        </li>      
+        <li class="nav-item">
+          <%= link_to "New Lesson", new_lesson_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+    <div class="col-md-4">
+      <p>© Lesson Notes 2018</p>
+    </div>
+    <div class="col-md-4">
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <%= link_to "New Student", new_student_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Manage Quotes", quotes_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item">
+          <%= link_to "Help", help_path, class: "nav-link" %>
+        </li>
+      </ul>
+    </div>
+  </div>
 </footer>
 
   </body>
