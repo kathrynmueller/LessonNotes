@@ -34,19 +34,23 @@
         <td><%= student.lesson_time %></td>
 
         <% if student.lessons.last == nil %>
-          <td> * No lessons for student * </td>
+          <td> * No lessons * </td>
         <% else %>
             <% if student.lessons.last.lesson_date.past? %>
-              <td> * No next lesson scheduled * </td>
+              <td> * No future lessons scheduled * </td>
             <% else %>
               <td> <%= student.lessons.last.lesson_date.strftime('%a, %B %e, %l:%M %p ') %> </td>         
             <% end %>
         <% end %>
 
-        <% if student.lessons.last != nil %>
-        <td><%= link_to 'Edit Lesson', edit_lesson_path(student.lessons.last), class: "button btn btn-info" %></td>
+        <% if student.lessons.last == nil %>
+          <td> </td>
         <% else %>
-        <td></td>
+          <% if student.lessons.last.lesson_date.past? %>
+              <td> <%= link_to 'Edit Last Lesson', edit_lesson_path(student.lessons.last), class: "button btn btn-info" %> </td>
+              <% else %>
+              <td> <%= link_to 'Edit Next Lesson', edit_lesson_path(student.lessons.last), class: "button btn btn-info" %> </td> 
+              <% end %>
         <% end %>
 
         <td><%= link_to 'View Student', student, class: "button btn btn-info" %></td>
