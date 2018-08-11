@@ -4,6 +4,8 @@
 2.4.1p111
 
 ## Configuration
+To run the app you'll need a Redis server, and you have to start the workers.
+
 ### Install Redis
 If you have homebrew, in your terminal:
 
