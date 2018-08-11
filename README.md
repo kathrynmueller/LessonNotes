@@ -1,24 +1,18 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby version
+2.4.1p111
 
-Things you may want to cover:
+## Configuration
+### Install Redis
+If you have homebrew, in your terminal:
 
-* Ruby version
+`brew install redis`
 
-* System dependencies
+### Start up the Redis server
+`redis-server /usr/local/etc/redis.conf`
 
-* Configuration
+### Start workers
+`rake resque:work QUEUE='*'`
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+(to stop workers: CONTROL C)
