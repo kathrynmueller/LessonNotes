@@ -33,8 +33,8 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
 
-        Resque.enqueue(TeacherReminder, @lesson.id)
-        # LessonMailer.new_lesson(@lesson).deliver_now 
+        # Resque.enqueue(TeacherReminder, @lesson.id)
+        LessonMailer.new_lesson(@lesson).deliver_now 
 
         StudentMailer.new_lesson(@lesson).deliver_now
 
