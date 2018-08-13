@@ -1,24 +1,20 @@
-# README
+# Lesson Notes
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+## Ruby version
+2.4.1p111
 
-Things you may want to cover:
+## Configuration
+To run the app you'll need a Redis server, and you have to start the workers.
 
-* Ruby version
+### Install Redis
+If you have homebrew, in your terminal:
 
-* System dependencies
+`brew install redis`
 
-* Configuration
+### Start up the Redis server
+`redis-server /usr/local/etc/redis.conf`
 
-* Database creation
+### Start workers
+`rake resque:work QUEUE='*'`
 
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+(to stop workers: CONTROL C)
