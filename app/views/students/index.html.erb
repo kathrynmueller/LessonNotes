@@ -34,7 +34,7 @@
         <td><%= student.lesson_time %></td>
 
         <% if student.lessons.last == nil %>
-          <td> * No lessons * </td>
+          <td> NO LESSONS </td>
         <% else %>
             <% if student.lessons.last.lesson_date.past? %>
               <td> * No future lessons scheduled * </td>
